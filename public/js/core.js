@@ -23,11 +23,17 @@ weatherForm.addEventListener("submit", async (e) => {
   if (res.error) {
     messageTwo.textContent = res.error;
   } else {
-    const { temperature, feelslike, weather_descriptions } = res.forecast;
+    const {
+      temperature,
+      feelslike,
+      weather_descriptions,
+      humidity,
+    } = res.forecast;
     messageTwo.textContent = `
       Tem: ${temperature}\n
       Feels like: ${feelslike}\n
       Description: ${weather_descriptions.join(",")}
+      Humidity: ${humidity}
     `;
     messageOne.textContent = res.location;
   }
